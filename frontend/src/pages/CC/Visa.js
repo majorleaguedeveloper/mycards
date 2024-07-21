@@ -5,22 +5,22 @@ import { Link } from 'react-router-dom';
 
 const Visa = () => {
   const tableData = [
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,120.74", price: "110$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,408.85", price: "130$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,685.25", price: "160$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,838.84", price: "180$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,025.84", price: "200$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,263.21", price: "230$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,572.31", price: "250$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,894.37", price: "280$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,082.71", price: "300$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,429.42", price: "340$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,800.21", price: "380$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,075.32", price: "400$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,596.74", price: "450$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,842.75", price: "480$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$5,077.00", price: "500$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$5,428.42", price: "540$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,120.74", price: "20$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,408.85", price: "22$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,685.25", price: "24$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,838.84", price: "26$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,025.84", price: "27$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,263.21", price: "30$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,572.31", price: "32$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,894.37", price: "34$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,082.71", price: "35.5$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,429.42", price: "37$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,800.21", price: "38$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,075.32", price: "40$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,596.74", price: "42$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,842.75", price: "43$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$5,077.00", price: "47$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$5,428.42", price: "50$" },
   ];
 
   return (
