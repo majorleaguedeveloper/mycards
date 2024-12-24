@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 const Ukfullz = () => {
   const tableData = [
-    { details: "UK Fullz", price: "50 USD" },
-    { details: "UK Fullz", price: "50 USD" },
-    { details: "UK Fullz", price: "50 USD" },
-    { details: "UK Fullz", price: "50 USD" },
-    { details: "UK Fullz", price: "50 USD" }
+    { details: "UK Fullz", price: "10 USD" },
+    { details: "UK Fullz", price: "150 USD" },
+    { details: "UK Fullz", price: "150 USD" },
+    { details: "UK Fullz", price: "150 USD" },
+    { details: "UK Fullz", price: "150 USD" }
   ];
 
   return (

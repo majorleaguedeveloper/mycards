@@ -23,7 +23,7 @@ const Usaleads = () => {
             <td>10k Daily</td>
             <td>Gmail, Yahoo, Outlook, Aol, Domain Emails</td>
             <td>1 Month</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -33,7 +33,7 @@ const Usaleads = () => {
             <td>10k Daily</td>
             <td>Gmail, Yahoo, Outlook, Aol, Domain Emails</td>
             <td>1 Month</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -43,7 +43,7 @@ const Usaleads = () => {
             <td>10k Daily</td>
             <td>Gmail, Yahoo, Outlook, Aol, Domain Emails</td>
             <td>1 Month</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -53,7 +53,7 @@ const Usaleads = () => {
             <td>10k Daily</td>
             <td>Gmail, Yahoo, Outlook, Aol, Domain Emails</td>
             <td>1 Month</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -63,7 +63,7 @@ const Usaleads = () => {
             <td>10k Daily</td>
             <td>Gmail, Yahoo, Outlook, Aol, Domain Emails</td>
             <td>1 Month</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -73,7 +73,7 @@ const Usaleads = () => {
             <td>10k Daily</td>
             <td>Gmail, Yahoo, Outlook, Aol, Domain Emails</td>
             <td>1 Month</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>

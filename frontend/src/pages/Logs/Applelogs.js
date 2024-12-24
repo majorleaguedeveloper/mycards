@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 const Applelogs = () => {
   const logs = [
-    { id: 1, balance: '$1,232.85', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$75.00' },
-    { id: 2, balance: '$1,485.25', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$88.00' },
-    { id: 3, balance: '$1,638.84', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$102.00' },
-    { id: 4, balance: '$2,025.84', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$154.00' },
-    { id: 5, balance: '$2,263.21', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$180.00' },
-    { id: 6, balance: '$2,572.31', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$204.00' },
-    { id: 7, balance: '$2,894.37', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$230.00' },
-    { id: 8, balance: '$3,182.71', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$263.00' },
-    { id: 9, balance: '$3,429.42', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$280.00' },
-    { id: 10, balance: '$4,100.21', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$310.00' },
+    { id: 1, balance: '$1,232.85', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$175.00' },
+    { id: 2, balance: '$1,485.25', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$188.00' },
+    { id: 3, balance: '$1,638.84', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$202.00' },
+    { id: 4, balance: '$2,025.84', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$254.00' },
+    { id: 5, balance: '$2,263.21', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$280.00' },
+    { id: 6, balance: '$2,572.31', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$304.00' },
+    { id: 7, balance: '$2,894.37', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$330.00' },
+    { id: 8, balance: '$3,182.71', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$363.00' },
+    { id: 9, balance: '$3,429.42', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$380.00' },
+    { id: 10, balance: '$4,100.21', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$410.00' },
   ];
 
   return (

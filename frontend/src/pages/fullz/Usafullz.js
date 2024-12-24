@@ -21,42 +21,6 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>90$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>100$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>115$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>140$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
             <td>150$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
@@ -66,43 +30,7 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>168$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>181$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>190$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>200$</td>
-            <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
-          </tr>
-          <tr className="active">
-            <td>USA Fullz</td>
-            <td>Kyle</td>
-            <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>225$</td>
+            <td>170$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -120,7 +48,7 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>192$</td>
+            <td>200$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -129,7 +57,7 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>199$</td>
+            <td>250$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -138,7 +66,7 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>215$</td>
+            <td>268$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -147,7 +75,7 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>230$</td>
+            <td>281$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -156,7 +84,79 @@ const Usafullz = () => {
             <td>USA Fullz</td>
             <td>Kyle</td>
             <td>US dob+ssn CC Fullz(CVV) x10</td>
-            <td>255$</td>
+            <td>290$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>300$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>325$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>385$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>392$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>399$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>415$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>430$</td>
+            <td>
+              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+            </td>
+          </tr>
+          <tr className="active">
+            <td>USA Fullz</td>
+            <td>Kyle</td>
+            <td>US dob+ssn CC Fullz(CVV) x10</td>
+            <td>455$</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>

@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Boalogs = () => {
   const logs = [
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,290.47', price: '$110.00' },
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,456.55', price: '$120.11' },
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,675.99', price: '$132.01' },
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,841.33', price: '$155.03' },
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,215.73', price: '$174.01' },
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,452.45', price: '$186.05' },
-    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,609.34', price: '$191.01' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,290.47', price: '$150.00' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,456.55', price: '$170.11' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,675.99', price: '$182.01' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,841.33', price: '$185.03' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,215.73', price: '$194.01' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,452.45', price: '$199.05' },
+    { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,609.34', price: '$205.01' },
     { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,915.32', price: '$210.14' },
     { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$3,102.84', price: '$230.00' },
     { name: 'BOA', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$3,420.18', price: '$265.01' },

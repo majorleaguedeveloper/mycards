@@ -27,7 +27,7 @@ const Alibabaleads = () => {
               Card Information, Address, Support Pin
             </td>
             <td>$1,111.11</td>
-            <td>$100</td>
+            <td>$150</td>
             <td title="live">
               <div className="liveDot"></div>
             </td>
@@ -43,7 +43,7 @@ const Alibabaleads = () => {
               Card Information, Address, Support Pin
             </td>
             <td>$1,530.11</td>
-            <td>$150</td>
+            <td>$160</td>
             <td title="live">
               <div className="liveDot"></div>
             </td>

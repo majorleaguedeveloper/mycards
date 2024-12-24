@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 const Canadafullz = () => {
   const tableData = [
-    { details: "Canada VISA CC Fullz(CVV) x10", price: "130 USD" },
+    { details: "Canada VISA CC Fullz(CVV) x10", price: "147 USD" },
     { details: "Canada VISA CC Fullz(CVV) x10", price: "250 USD" },
+    { details: "Canada VISA CC Fullz(CVV) x10", price: "170 USD" },
     { details: "Canada VISA CC Fullz(CVV) x10", price: "150 USD" },
-    { details: "Canada VISA CC Fullz(CVV) x10", price: "120 USD" },
-    { details: "Canada VISA CC Fullz(CVV) x10", price: "115 USD" }
+    { details: "Canada VISA CC Fullz(CVV) x10", price: "180 USD" }
   ];
 
   return (

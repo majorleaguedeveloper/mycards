@@ -19,7 +19,7 @@ const Canadaleads = () => {
           <tr>
             <td>CANADA LEADS</td>
             <td>CANADA LEADS</td>
-            <td>105 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -27,7 +27,7 @@ const Canadaleads = () => {
           <tr>
             <td>CANADA LEADS</td>
             <td>CANADA LEADS</td>
-            <td>130 USD</td>
+            <td>170 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -35,7 +35,7 @@ const Canadaleads = () => {
           <tr>
             <td>CANADA LEADS</td>
             <td>CANADA LEADS</td>
-            <td>140 USD</td>
+            <td>187 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -43,7 +43,7 @@ const Canadaleads = () => {
           <tr>
             <td>CANADA LEADS</td>
             <td>CANADA LEADS</td>
-            <td>175 USD</td>
+            <td>194 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -51,7 +51,7 @@ const Canadaleads = () => {
           <tr>
             <td>CANADA LEADS</td>
             <td>CANADA LEADS</td>
-            <td>190 USD</td>
+            <td>199 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>

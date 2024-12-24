@@ -19,7 +19,7 @@ const Singaporeleads = () => {
           <tr>
             <td>SINGAPORE LEADS</td>
             <td>SINGAPORE LEADS</td>
-            <td>100 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -27,7 +27,7 @@ const Singaporeleads = () => {
           <tr>
             <td>SINGAPORE LEADS</td>
             <td>SINGAPORE LEADS</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -35,7 +35,7 @@ const Singaporeleads = () => {
           <tr>
             <td>SINGAPORE LEADS</td>
             <td>SINGAPORE LEADS</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -43,7 +43,7 @@ const Singaporeleads = () => {
           <tr>
             <td>SINGAPORE LEADS</td>
             <td>SINGAPORE LEADS</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>
@@ -51,7 +51,7 @@ const Singaporeleads = () => {
           <tr>
             <td>SINGAPORE LEADS</td>
             <td>SINGAPORE LEADS</td>
-            <td>30 USD</td>
+            <td>150 USD</td>
             <td>
               <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
             </td>

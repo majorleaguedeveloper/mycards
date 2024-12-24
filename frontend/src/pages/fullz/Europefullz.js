@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 const Europefullz = () => {
   const tableData = [
-    { details: "Europe Fullz", price: "100 USD", buyNowLink: "./payment.html" },
-    { details: "Europe Fullz", price: "50 USD", buyNowLink: "./payment.html" },
-    { details: "Europe Fullz", price: "50 USD", buyNowLink: "./payment.html" },
-    { details: "Europe Fullz", price: "50 USD", buyNowLink: "./payment.html" },
-    { details: "Europe Fullz", price: "50 USD", buyNowLink: "./payment.html" }
+    { details: "Europe Fullz", price: "150 USD", buyNowLink: "./payment.html" },
+    { details: "Europe Fullz", price: "150 USD", buyNowLink: "./payment.html" },
+    { details: "Europe Fullz", price: "150 USD", buyNowLink: "./payment.html" },
+    { details: "Europe Fullz", price: "150 USD", buyNowLink: "./payment.html" },
+    { details: "Europe Fullz", price: "150 USD", buyNowLink: "./payment.html" }
   ];
 
   return (

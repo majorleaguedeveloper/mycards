@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const Citilogs = () => {
   const logs = [
-    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,150.47', price: '$80.22' },
-    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,402.55', price: '$99.25' },
-    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,620.44', price: '$120.23' },
-    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,692.33', price: '$145.40' },
-    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,102.45', price: '$165.01' },
+    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,150.47', price: '$152.22' },
+    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,402.55', price: '$199.25' },
+    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,620.44', price: '$220.23' },
+    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,692.33', price: '$245.40' },
+    { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,102.45', price: '$265.01' },
     { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,320.12', price: '$175.00' },
     { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,503.13', price: '$186.01' },
     { name: 'CITI', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,805.32', price: '$205.50' },
