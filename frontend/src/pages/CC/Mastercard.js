@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 
 const Mastercard = () => {
   const tableData = [
+
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$245.53", price: "25$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$304.53", price: "30$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$707.53", price: "50$" },
     { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,000.53", price: "150$" },
     { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,225.42", price: "160$" },
     { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,400.64", price: "180$" },

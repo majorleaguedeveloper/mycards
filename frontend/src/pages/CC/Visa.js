@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 
 const Visa = () => {
   const tableData = [
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$210.53", price: "24.5$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$430.53", price: "35.6$" },
+    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$745.53", price: "87$" },
     { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,120.74", price: "155$" },
     { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,408.85", price: "170$" },
     { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,685.25", price: "210$" },
