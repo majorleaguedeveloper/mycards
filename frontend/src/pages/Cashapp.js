@@ -56,7 +56,7 @@ const Cashapp = () => {
 
   return (
     <Container>
-      <Alert variant="success">Cashapp logins</Alert>
+      <Alert variant="success">Cashapp logs</Alert>
       <Table responsive style={{ backgroundColor: 'white' }}>
         <thead>
           <tr>
