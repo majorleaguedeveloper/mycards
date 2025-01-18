@@ -1,35 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Button, Alert, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 const Mastercard = () => {
-  const tableData = [
+  // Function to generate random balances
+  const generateBalance = () => {
+    return (Math.random() * (1000 - 100) + 200).toFixed(2); // generates a balance between $200 and $5000
+  };
 
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$245.53", price: "25$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$304.53", price: "30$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$707.53", price: "50$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,000.53", price: "150$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,225.42", price: "160$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,400.64", price: "180$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,600.26", price: "200$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$1,939.74", price: "210$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,038.85", price: "230$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,262.42", price: "270$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$2,843.85", price: "320$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,084.43", price: "470$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,428.85", price: "500$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$3,803.32", price: "520$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,054.28", price: "570$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,596.74", price: "610$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$4,842.75", price: "640$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$5,377.00", price: "670$" },
-    { details: "name of the cardholder, CVV code, billing details, and expiration date, state,age", balance: "$5,728.42", price: "720$" }
-  ];
+  // Initialize table data
+  const initialTableData = Array.from({ length: 100 }, () => {
+    const balance = generateBalance();
+    return {
+      details: "name of the cardholder, CVV code, billing details, and expiration date, state, age",
+      balance: `$${balance}`,
+      price: `$${(parseFloat(balance) / 10).toFixed(2)}`,
+      bought: false, // Initially, no item is bought
+    };
+  });
+
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    const timers = tableData.map((_, index) => {
+      // Set a random timeout for each item to change to "Bought"
+      const randomTimeout = Math.floor(Math.random() * 120000); // Random time under 2 minutes
+      return setTimeout(() => {
+        setTableData((prevData) => {
+          const newData = [...prevData];
+          newData[index].bought = true; // Mark item as bought
+          return newData;
+        });
+
+        // Set a timeout to reset the "bought" status and update the price
+        setTimeout(() => {
+          setTableData((prevData) => {
+            const newData = [...prevData];
+            const balance = generateBalance(); // Generate new balance
+            newData[index] = {
+              ...newData[index],
+              bought: false, // Reset bought status
+              balance: `$${balance}`,
+              price: `$${(parseFloat(balance) / 10).toFixed(2)}`, // Update price
+            };
+            return newData;
+          });
+        }, Math.floor(Math.random() * 60000)); // Random time under 1 minute
+      }, randomTimeout);
+    });
+
+    // Cleanup timeouts when the component unmounts
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, [tableData]);
 
   return (
     <Container>
-      <Alert variant="success">MASTERCARD</Alert>
+      <Alert variant="success">Mastercard</Alert>
       <Table responsive style={{ backgroundColor: 'white' }}>
         <thead>
           <tr>
@@ -37,7 +64,7 @@ const Mastercard = () => {
             <th>Includes</th>
             <th>Balance</th>
             <th>Price</th>
-            <th>Buy Now</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -48,8 +75,15 @@ const Mastercard = () => {
               <td>{item.balance}</td>
               <td>{item.price}</td>
               <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-               
+                {item.bought ? (
+                  <Button style={{ width: '100px' }} variant="danger" disabled>
+                    Booked !!!
+                  </Button>
+                ) : (
+                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                    Buy Now
+                  </Button>
+                )}
               </td>
             </tr>
           ))}

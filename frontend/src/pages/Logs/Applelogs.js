@@ -1,51 +1,95 @@
-import React from 'react';
-import { Table, Button, Alert } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Button, Alert, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 const Applelogs = () => {
-  const logs = [
-    { id: 1, balance: '$1,232.85', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$175.00' },
-    { id: 2, balance: '$1,485.25', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$188.00' },
-    { id: 3, balance: '$1,638.84', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$202.00' },
-    { id: 4, balance: '$2,025.84', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$254.00' },
-    { id: 5, balance: '$2,263.21', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$280.00' },
-    { id: 6, balance: '$2,572.31', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$304.00' },
-    { id: 7, balance: '$2,894.37', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$330.00' },
-    { id: 8, balance: '$3,182.71', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$363.00' },
-    { id: 9, balance: '$3,429.42', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$380.00' },
-    { id: 10, balance: '$4,100.21', title: 'Apple bank', info: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', price: '$410.00' },
-  ];
+  // Function to generate random balances
+  const generateBalance = () => {
+    return (Math.random() * (1000 - 100) + 200).toFixed(2); // generates a balance between $200 and $5000
+  };
+
+  // Initialize table data
+  const initialTableData = Array.from({ length: 100 }, () => {
+    const balance = generateBalance();
+    return {
+      details: "Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON",
+      balance: `$${balance}`,
+      price: `$${(parseFloat(balance) / 10).toFixed(2)}`,
+      bought: false, // Initially, no item is bought
+    };
+  });
+
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    const timers = tableData.map((_, index) => {
+      // Set a random timeout for each item to change to "Bought"
+      const randomTimeout = Math.floor(Math.random() * 120000); // Random time under 2 minutes
+      return setTimeout(() => {
+        setTableData((prevData) => {
+          const newData = [...prevData];
+          newData[index].bought = true; // Mark item as bought
+          return newData;
+        });
+
+        // Set a timeout to reset the "bought" status and update the price
+        setTimeout(() => {
+          setTableData((prevData) => {
+            const newData = [...prevData];
+            const balance = generateBalance(); // Generate new balance
+            newData[index] = {
+              ...newData[index],
+              bought: false, // Reset bought status
+              balance: `$${balance}`,
+              price: `$${(parseFloat(balance) / 10).toFixed(2)}`, // Update price
+            };
+            return newData;
+          });
+        }, Math.floor(Math.random() * 60000)); // Random time under 1 minute
+      }, randomTimeout);
+    });
+
+    // Cleanup timeouts when the component unmounts
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, [tableData]);
 
   return (
-    <div className="table-responsive">
-      <Alert variant="success">Apple Bank Logs</Alert>
-      <Table bordered hover style={{ backgroundColor: 'white' }} id="apple">
+    <Container>
+      <Alert variant="success">APPLE BANK LOGS</Alert>
+      <Table responsive style={{ backgroundColor: 'white' }}>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Logs Name</th>
+            <th>Includes</th>
             <th>Balance</th>
-            <th>Title</th>
-            <th>Info</th>
             <th>Price</th>
-            <th>Action</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {logs.map(log => (
-            <tr key={log.id}>
-              <td>{log.id}</td>
-              <td>{log.balance}</td>
-              <td>{log.title}</td>
-              <td>{log.info}</td>
-              <td>{log.price}</td>
+          {tableData.map((item, index) => (
+            <tr key={index} className="active">
+              <td>Applelogs</td>
+              <td>{item.details}</td>
+              <td>{item.balance}</td>
+              <td>{item.price}</td>
               <td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+                {item.bought ? (
+                  <Button style={{ width: '100px' }} variant="danger" disabled>
+                    Booked !!!
+                  </Button>
+                ) : (
+                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                    Buy Now
+                  </Button>
+                )}
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
-    </div>
+    </Container>
   );
 };
 

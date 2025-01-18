@@ -1,158 +1,87 @@
-import React from 'react';
-import { Table, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Button, Alert, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-const ChimeLogs = () => {
-  const logsData = [
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,050.47',
-      price: '$181.48',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,100.55',
-      price: '$189.45',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,210.55',
-      price: '$199.45',
-      available: false,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,302.99',
-      price: '$210.54',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,470.33',
-      price: '$220.34',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,704.73',
-      price: '$232.23',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,150.45',
-      price: '$245.55',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,430.34',
-      price: '$265.84',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,712.32',
-      price: '$279.23',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,057.84',
-      price: '$289.26',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3350.00',
-      price: '$300.20',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,600.77',
-      price: '$325.00',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,823.87',
-      price: '$350.65',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$4,120.10',
-      price: '$382.50',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$4,450.24',
-      price: '$398.77',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$4,700.22',
-      price: '$410.54',
-      available: true,
-    },
-    {
-      name: 'CHIME',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$5,055.47',
-      price: '$430.22',
-      available: true,
-    },
-  ];
+const Chimelogs = () => {
+  // Function to generate random balances
+  const generateBalance = () => {
+    return (Math.random() * (1000 - 100) + 200).toFixed(2); // generates a balance between $200 and $5000
+  };
+
+  // Initialize table data
+  const initialTableData = Array.from({ length: 100 }, () => {
+    const balance = generateBalance();
+    return {
+      details: "Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON",
+      balance: `$${balance}`,
+      price: `$${(parseFloat(balance) / 10).toFixed(2)}`,
+      bought: false, // Initially, no item is bought
+    };
+  });
+
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    const timers = tableData.map((_, index) => {
+      // Set a random timeout for each item to change to "Bought"
+      const randomTimeout = Math.floor(Math.random() * 120000); // Random time under 2 minutes
+      return setTimeout(() => {
+        setTableData((prevData) => {
+          const newData = [...prevData];
+          newData[index].bought = true; // Mark item as bought
+          return newData;
+        });
+
+        // Set a timeout to reset the "bought" status and update the price
+        setTimeout(() => {
+          setTableData((prevData) => {
+            const newData = [...prevData];
+            const balance = generateBalance(); // Generate new balance
+            newData[index] = {
+              ...newData[index],
+              bought: false, // Reset bought status
+              balance: `$${balance}`,
+              price: `$${(parseFloat(balance) / 10).toFixed(2)}`, // Update price
+            };
+            return newData;
+          });
+        }, Math.floor(Math.random() * 60000)); // Random time under 1 minute
+      }, randomTimeout);
+    });
+
+    // Cleanup timeouts when the component unmounts
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, [tableData]);
 
   return (
-    <div className="table-responsive">
-      <div className="d-flex justify-content-center my-4">
-        <p className="h4">Chime Bank Logs</p>
-      </div>
-      <Table striped bordered hover style={{ backgroundColor: 'rgb(248, 248, 248)' }}>
+    <Container>
+      <Alert variant="success">CHIME BANK LOGS</Alert>
+      <Table responsive style={{ backgroundColor: 'white' }}>
         <thead>
           <tr>
             <th>Logs Name</th>
             <th>Includes</th>
             <th>Balance</th>
             <th>Price</th>
-            <th>Buy now</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {logsData.map((log, index) => (
-            <tr className="active" key={index}>
-              <td>{log.name}</td>
-              <td>{log.includes}</td>
-              <td>{log.balance}</td>
-              <td>{log.price}</td>
+          {tableData.map((item, index) => (
+            <tr key={index} className="active">
+              <td>Chimelogs</td>
+              <td>{item.details}</td>
+              <td>{item.balance}</td>
+              <td>{item.price}</td>
               <td>
-                {log.available ? (
-                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+                {item.bought ? (
+                  <Button style={{ width: '100px' }} variant="danger" disabled>
+                    Booked !!!
+                  </Button>
                 ) : (
-                  <Button style={{ width: '120px', backgroundColor: 'red' }} variant="success" disabled>
-                    SOLD OUT
+                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                    Buy Now
                   </Button>
                 )}
               </td>
@@ -160,8 +89,8 @@ const ChimeLogs = () => {
           ))}
         </tbody>
       </Table>
-    </div>
+    </Container>
   );
 };
 
-export default ChimeLogs;
+export default Chimelogs;

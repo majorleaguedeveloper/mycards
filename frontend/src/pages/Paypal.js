@@ -1,77 +1,95 @@
-import React from 'react';
-import { Table, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Button, Alert, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 const Paypal = () => {
-  const logs = [
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$1,154.24', price: '$95.29', soldOut: true },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$1,250.84', price: '$110.70', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$1,347.55', price: '$125.05', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$1,553.53', price: '$135.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$1,825.53', price: '$150.50', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$2,003.48', price: '$170.00', soldOut: true },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$2,455.00', price: '$190.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$2,736.88', price: '$210.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$3,027.01', price: '$240.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$3,163.56', price: '$285.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$3,474.90', price: '$330.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$3,600.43', price: '$360.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$3,925.90', price: '$380.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$4,117.86', price: '$410.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$4,417.86', price: '$440.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$4,684.35', price: '$460.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$4,853.57', price: '$480.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$5,024.42', price: '$500.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$5,604.42', price: '$560.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$6,695.93', price: '$663.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$6,961.19', price: '$681.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$6,999.24', price: '$690.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,184.32', price: '$699.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,223.98', price: '$724.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,247.81', price: '$727.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,462.14', price: '$738.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,639.54', price: '$754.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,697.17', price: '$759.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$7,737.68', price: '$767.00', soldOut: false },
-    { name: 'Paypal', includes: 'Email access -Disabled 2FA, Come with cookies -zelle enabled', balance: '$8,215.94', price: '$791.00', soldOut: false },
-  ];
+  // Function to generate random balances
+  const generateBalance = () => {
+    return (Math.random() * (1000 - 100) + 200).toFixed(2); // generates a balance between $200 and $5000
+  };
+
+  // Initialize table data
+  const initialTableData = Array.from({ length: 100 }, () => {
+    const balance = generateBalance();
+    return {
+      details: "Email access -Disabled 2FA, Come with cookies -zelle enabled",
+      balance: `$${balance}`,
+      price: `$${(parseFloat(balance) / 10).toFixed(2)}`,
+      bought: false, // Initially, no item is bought
+    };
+  });
+
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    const timers = tableData.map((_, index) => {
+      // Set a random timeout for each item to change to "Bought"
+      const randomTimeout = Math.floor(Math.random() * 120000); // Random time under 2 minutes
+      return setTimeout(() => {
+        setTableData((prevData) => {
+          const newData = [...prevData];
+          newData[index].bought = true; // Mark item as bought
+          return newData;
+        });
+
+        // Set a timeout to reset the "bought" status and update the price
+        setTimeout(() => {
+          setTableData((prevData) => {
+            const newData = [...prevData];
+            const balance = generateBalance(); // Generate new balance
+            newData[index] = {
+              ...newData[index],
+              bought: false, // Reset bought status
+              balance: `$${balance}`,
+              price: `$${(parseFloat(balance) / 10).toFixed(2)}`, // Update price
+            };
+            return newData;
+          });
+        }, Math.floor(Math.random() * 60000)); // Random time under 1 minute
+      }, randomTimeout);
+    });
+
+    // Cleanup timeouts when the component unmounts
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, [tableData]);
 
   return (
-    <div className="table-responsive">
-        <div className='d-flex justify-content-center my-4'>
-            <p className='h4'>Paypal Logs</p>
-        </div>
-        <Table striped bordered hover>
-          <thead style={{ backgroundColor: 'rgb(248, 248, 248)' }}>
-            <tr>
-              <th>Logs Name</th>
-              <th>Includes</th>
-              <th>Balance</th>
-              <th>Price</th>
-              <th>Buy Now</th>
+    <Container>
+      <Alert variant="success">Paypal logins</Alert>
+      <Table responsive style={{ backgroundColor: 'white' }}>
+        <thead>
+          <tr>
+            <th>Logs Name</th>
+            <th>Includes</th>
+            <th>Balance</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((item, index) => (
+            <tr key={index} className="active">
+              <td>Paypal</td>
+              <td>{item.details}</td>
+              <td>{item.balance}</td>
+              <td>{item.price}</td>
+              <td>
+                {item.bought ? (
+                  <Button style={{ width: '100px' }} variant="danger" disabled>
+                    Booked !!!
+                  </Button>
+                ) : (
+                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                    Buy Now
+                  </Button>
+                )}
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {logs.map((log, index) => (
-              <tr key={index} className="active">
-                <td>{log.name}</td>
-                <td>{log.includes}</td>
-                <td>{log.balance}</td>
-                <td>{log.price}</td>
-                <td>
-                  {log.soldOut ? (
-                    <Button variant="success" style={{ backgroundColor: 'red' , width:'100px'}} >
-                      <marquee>SOLD OUT</marquee>
-                    </Button>
-                  ) : (
-                    <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </div>  
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 };
 

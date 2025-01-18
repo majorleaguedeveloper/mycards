@@ -1,141 +1,96 @@
-import React from 'react';
-import { Button, Table } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Button, Alert, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
-const ChaseLogs = () => {
-  const data = [
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,300.47',
-      price: '$153.23',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,366.55',
-      price: '$210.45',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,699.99',
-      price: '$225.54',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$1,881.33',
-      price: '$125.34',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,235.73',
-      price: '$245.23',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,352.45',
-      price: '$265.65',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,622.34',
-      price: '$180.34',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$2,901.32',
-      price: '$295.43',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,052.84',
-      price: '$320.76',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,224.18',
-      price: '$355.15',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,600.31',
-      price: '$405.32',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$3,728.87',
-      price: '$433.75',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$4,250.10',
-      price: '$450.87',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$4,550.24',
-      price: '$465.67',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$4,799.56',
-      price: '$497.56',
-    },
-    {
-      name: 'CHASE',
-      includes: 'Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON',
-      balance: '$5,110.50',
-      price: '$520.06',
-    },
-  ];
+const Chaselogs = () => {
+  // Function to generate random balances
+  const generateBalance = () => {
+    return (Math.random() * (1000 - 100) + 200).toFixed(2); // generates a balance between $200 and $5000
+  };
 
-  
+  // Initialize table data
+  const initialTableData = Array.from({ length: 100 }, () => {
+    const balance = generateBalance();
+    return {
+      details: "Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON",
+      balance: `$${balance}`,
+      price: `$${(parseFloat(balance) / 10).toFixed(2)}`,
+      bought: false, // Initially, no item is bought
+    };
+  });
+
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    const timers = tableData.map((_, index) => {
+      // Set a random timeout for each item to change to "Bought"
+      const randomTimeout = Math.floor(Math.random() * 120000); // Random time under 2 minutes
+      return setTimeout(() => {
+        setTableData((prevData) => {
+          const newData = [...prevData];
+          newData[index].bought = true; // Mark item as bought
+          return newData;
+        });
+
+        // Set a timeout to reset the "bought" status and update the price
+        setTimeout(() => {
+          setTableData((prevData) => {
+            const newData = [...prevData];
+            const balance = generateBalance(); // Generate new balance
+            newData[index] = {
+              ...newData[index],
+              bought: false, // Reset bought status
+              balance: `$${balance}`,
+              price: `$${(parseFloat(balance) / 10).toFixed(2)}`, // Update price
+            };
+            return newData;
+          });
+        }, Math.floor(Math.random() * 60000)); // Random time under 1 minute
+      }, randomTimeout);
+    });
+
+    // Cleanup timeouts when the component unmounts
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, [tableData]);
 
   return (
-    <div className="table-responsive">
-      <div className='d-flex justify-content-center my-4'>
-        <p className='h4'>Chase Bank Logs</p>
-      </div>
-
-      <Table className="table"  style={{ backgroundColor: 'rgb(248, 248, 248)' }}>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Includes</th>
-          <th>Balance</th>
-          <th>Price</th>
-          <th>Buy Now</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item, index) => (
-          <tr className="active" key={index}>
-            <td>{item.name}</td>
-            <td>{item.includes}</td>
-            <td>{item.balance}</td>
-            <td>{item.price}</td>
-            <td>
-            <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
-            </td>
+    <Container>
+      <Alert variant="success">CHASE BANK LOGS</Alert>
+      <Table responsive style={{ backgroundColor: 'white' }}>
+        <thead>
+          <tr>
+            <th>Logs Name</th>
+            <th>Includes</th>
+            <th>Balance</th>
+            <th>Price</th>
+            <th>Status</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
-    </div>
+        </thead>
+        <tbody>
+          {tableData.map((item, index) => (
+            <tr key={index} className="active">
+              <td>Chaselogs</td>
+              <td>{item.details}</td>
+              <td>{item.balance}</td>
+              <td>{item.price}</td>
+              <td>
+                {item.bought ? (
+                  <Button style={{ width: '100px' }} variant="danger" disabled>
+                    Booked !!!
+                  </Button>
+                ) : (
+                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                    Buy Now
+                  </Button>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </Container>
   );
 };
 
-export default ChaseLogs;
+export default Chaselogs;

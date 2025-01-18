@@ -1,53 +1,95 @@
-import React from 'react';
-import { Table, Button, Alert } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table, Button, Alert, Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 const Huntington = () => {
-  const logs = [
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,216.57', price: '$147.82' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,357.22', price: '$170.77' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,652.99', price: '$190.12' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$1,840.11', price: '$205.24' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,152.50', price: '$210.00' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,361.45', price: '$225.36' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,500.34', price: '$239.55' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$2,760.32', price: '$245.45' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$3,160.84', price: '$247.33' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$3,460.18', price: '$253.11' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$3,650.31', price: '$280.12' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$3,830.46', price: '$310.00' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$4,150.10', price: '$335.22' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$4,440.24', price: '$355.54' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$4,635.11', price: '$380.00' },
-    { name: 'HUNTINGTON', includes: 'Online Access, Email Access, DOB, Cookies, Q&A Gender, Ssn, Address, Acct&Rn license NO, ZelleON', balance: '$5,150.50', price: '$400.88' },
-  ];
+  // Function to generate random balances
+  const generateBalance = () => {
+    return (Math.random() * (1000 - 100) + 200).toFixed(2); // generates a balance between $200 and $5000
+  };
+
+  // Initialize table data
+  const initialTableData = Array.from({ length: 100 }, () => {
+    const balance = generateBalance();
+    return {
+      details: "Online Access,Email Access, DOB,Cookies,Q&A Gender,Ssn, Address, Acct&Rn license NO,ZelleON",
+      balance: `$${balance}`,
+      price: `$${(parseFloat(balance) / 10).toFixed(2)}`,
+      bought: false, // Initially, no item is bought
+    };
+  });
+
+  const [tableData, setTableData] = useState(initialTableData);
+
+  useEffect(() => {
+    const timers = tableData.map((_, index) => {
+      // Set a random timeout for each item to change to "Bought"
+      const randomTimeout = Math.floor(Math.random() * 120000); // Random time under 2 minutes
+      return setTimeout(() => {
+        setTableData((prevData) => {
+          const newData = [...prevData];
+          newData[index].bought = true; // Mark item as bought
+          return newData;
+        });
+
+        // Set a timeout to reset the "bought" status and update the price
+        setTimeout(() => {
+          setTableData((prevData) => {
+            const newData = [...prevData];
+            const balance = generateBalance(); // Generate new balance
+            newData[index] = {
+              ...newData[index],
+              bought: false, // Reset bought status
+              balance: `$${balance}`,
+              price: `$${(parseFloat(balance) / 10).toFixed(2)}`, // Update price
+            };
+            return newData;
+          });
+        }, Math.floor(Math.random() * 60000)); // Random time under 1 minute
+      }, randomTimeout);
+    });
+
+    // Cleanup timeouts when the component unmounts
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, [tableData]);
 
   return (
-    <div className="table-responsive">
+    <Container>
       <Alert variant="success">HUNTINGTON BANK LOGS</Alert>
-      <Table striped bordered hover style={{ backgroundColor: 'rgb(248, 248, 248)' }}>
+      <Table responsive style={{ backgroundColor: 'white' }}>
         <thead>
           <tr>
             <th>Logs Name</th>
             <th>Includes</th>
             <th>Balance</th>
             <th>Price</th>
-            <th>Buy now</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
-          {logs.map((log, index) => (
+          {tableData.map((item, index) => (
             <tr key={index} className="active">
-              <td>{log.name}</td>
-              <td>{log.includes}</td>
-              <td>{log.balance}</td>
-              <td>{log.price}</td>
-              <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">Buy Now</Button>
+              <td>Huntington</td>
+              <td>{item.details}</td>
+              <td>{item.balance}</td>
+              <td>{item.price}</td>
+              <td>
+                {item.bought ? (
+                  <Button style={{ width: '100px' }} variant="danger" disabled>
+                    Booked !!!
+                  </Button>
+                ) : (
+                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                    Buy Now
+                  </Button>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
       </Table>
-    </div>
+    </Container>
   );
 };
 
