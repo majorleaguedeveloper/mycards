@@ -56,7 +56,7 @@ const Mastercard = () => {
 
   return (
     <Container>
-      <Alert variant="success">Mastercard</Alert>
+      <Alert variant="primary" style={{borderRadius: '0px', justifyContent: 'center', alignItems: 'center', display: 'flex', fontWeight: 'bold', fontSize: '24px'}}>MasterCard</Alert>
       <Table responsive style={{ backgroundColor: 'white' }}>
         <thead>
           <tr>
@@ -76,11 +76,11 @@ const Mastercard = () => {
               <td>{item.price}</td>
               <td>
                 {item.bought ? (
-                  <Button style={{ width: '100px' }} variant="danger" disabled>
-                    Booked !!!
+                  <Button style={{ width: '100px', height: '40px', border: 'none', borderRadius: '20px', backgroundColor: 'red' }} disabled>
+                    Booked
                   </Button>
                 ) : (
-                  <Button style={{ width: '100px' }} as={Link} to="/checkout" variant="success">
+                  <Button style={{ width: '100px', height: '40px', border: 'none', borderRadius: '20px' }} as={Link} to="/checkout" variant="primary">
                     Buy Now
                   </Button>
                 )}

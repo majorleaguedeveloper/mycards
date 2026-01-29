@@ -1,6 +1,6 @@
 import React, { useState,useContext } from 'react';
 import { Navbar, Nav, NavDropdown, Button, ButtonGroup } from 'react-bootstrap';
-import { IoHome } from "react-icons/io5";
+import { IoCardOutline, IoCashOutline, IoHome } from "react-icons/io5";
 import { Link, useLocation } from 'react-router-dom';
 import { Store } from '../Store';
 
@@ -32,28 +32,29 @@ const MyNavbar = () => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" expanded={expanded}>
-      <Navbar.Brand as={Link} to="/" style={{ width:'60px', display: 'flex', justifyContent:'center' }}>
-        <Nav.Link as={Link} to="/" onClick={handleClose}><IoHome /></Nav.Link>
-      </Navbar.Brand>
+      <div>
+        <Navbar.Brand as={Link} to="/" style={{  display: 'flex', justifyContent:'center' }}>
+          <Nav.Link as={Link} to="/" onClick={handleClose} style={{ display: 'flex', alignItems: 'center',justifyContent:'center', color: 'white' }}>
+            <IoCardOutline size={24}/>
+            <p style={{fontSize: '16px', lineHeight: '15px', fontWeight: 'bold', justifySelf: 'center', marginLeft: '15px', marginBottom: '0' }}>Virgin Accounts</p>
+          </Nav.Link>
+        </Navbar.Brand>
+      </div>
       <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
       <Navbar.Collapse id="basic-navbar-nav">
-      <Navbar.Collapse className="d-flex justify-content-start" style={{}}>
-          <Nav className="mr-auto">
-            {userInfo ? (
-              <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                <NavDropdown.Item onClick={signoutHandler} >Sign Out</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="checkout" onClick={handleClose}>Deposit</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="myorders" onClick={handleClose}>MyOrders</NavDropdown.Item>
-              </NavDropdown>
-            ) : (
-              <ButtonGroup>
-                <Button as={Link} to="signup" onClick={handleClose} style={{marginRight: '10px'}}>Sign up</Button>
-                <Button as={Link} to="signin" onClick={handleClose}>Sign In</Button>
-              </ButtonGroup>
-            )}
-          </Nav>
-        </Navbar.Collapse>
         <Nav className="mr-auto">
+          <NavDropdown title="CC" id="basic-nav-dropdown" className="background-dark">
+            <NavDropdown.Item as={Link} to="visa" onClick={handleClose}>Visa</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="mastercard" onClick={handleClose}>MasterCard</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link as={Link} to="./paypal" onClick={handleClose}>Paypal</Nav.Link>
+          <Nav.Link as={Link} to="./cashapp" onClick={handleClose}>Cashapp</Nav.Link>
+          <NavDropdown title="Fullz" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="./usafullz" onClick={handleClose}>USA Fullz</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="canadafullz" onClick={handleClose}>Canada fullz</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="ukfullz" onClick={handleClose}>UK fullz</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="europefullz" onClick={handleClose}>Europe fullz</NavDropdown.Item>
+          </NavDropdown>
           <Nav.Link as={Link} to="/dumps" onClick={handleClose}>Dumps</Nav.Link>
           <NavDropdown title='Logs' id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} to="/chaselogs" onClick={handleClose}>Chase Logs</NavDropdown.Item>
@@ -66,8 +67,6 @@ const MyNavbar = () => {
             <NavDropdown.Item as={Link} to="/pnclogs" onClick={handleClose}>PNC Logs</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/suntrustlogs" onClick={handleClose}>Suntrust Logs</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link as={Link} to="./paypal" onClick={handleClose}>Paypal</Nav.Link>
-          <Nav.Link as={Link} to="./cashapp" onClick={handleClose}>Cashapp</Nav.Link>
           <NavDropdown title="Leads" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} to="usaleads" onClick={handleClose}>Usa Leads</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="./canadaleads" onClick={handleClose}>Canada Leads</NavDropdown.Item>
@@ -87,19 +86,21 @@ const MyNavbar = () => {
             <NavDropdown.Item as={Link} to="rdp" onClick={handleClose}>RDP</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="cpanel" onClick={handleClose}>Cpanel</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Fullz" id="basic-nav-dropdown">
-            <NavDropdown.Item as={Link} to="./usafullz" onClick={handleClose}>USA Fullz</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="canadafullz" onClick={handleClose}>Canada fullz</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="ukfullz" onClick={handleClose}>UK fullz</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="europefullz" onClick={handleClose}>Europe fullz</NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title="CC" id="basic-nav-dropdown">
-            <NavDropdown.Item as={Link} to="visa" onClick={handleClose}>Visa</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="mastercard" onClick={handleClose}>MasterCard</NavDropdown.Item>
-          </NavDropdown>
-        
           <Nav.Link as={Link} to="softwares" onClick={handleClose}>Softwares</Nav.Link>
-          
+        </Nav>
+        <Nav className="mr-auto">
+          {userInfo ? (
+            <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+              <NavDropdown.Item onClick={signoutHandler} >Sign Out</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="checkout" onClick={handleClose}>Deposit</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="myorders" onClick={handleClose}>MyOrders</NavDropdown.Item>
+            </NavDropdown>
+          ) : (
+            <ButtonGroup>
+              <Button as={Link} to="signup" onClick={handleClose} style={{margin: '0px 20px', padding: '10px 20px', borderRadius: '20px'}}>Sign up</Button>
+              <Button as={Link} to="signin" onClick={handleClose} style={{margin: '0px 20px', padding: '10px 20px', borderRadius: '20px'}}>Sign In</Button>
+            </ButtonGroup>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

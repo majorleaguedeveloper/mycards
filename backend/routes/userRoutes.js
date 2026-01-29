@@ -28,6 +28,13 @@ router.post(
 router.post(
   '/signup',
   expressAsyncHandler(async (req, res) => {
+    if (!req.body.name || !req.body.email || !req.body.password) {
+      return res.status(400).send({ message: 'Name, email, and password are required' });
+    }
+    const userExists = await User.findOne({ email: req.body.email });
+    if (userExists) {
+      return res.status(400).send({ message: 'User already exists' });
+    }
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,

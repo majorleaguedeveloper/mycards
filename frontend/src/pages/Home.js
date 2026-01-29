@@ -7,9 +7,10 @@ const Home = () => {
     <Container className="my-5">
       <Row className="justify-content-center">
         <Col md={8} style={{ boxShadow: '0px 0px 5px', backgroundColor: 'white', padding: '25px', marginBottom: '10px' }}>
-          <Alert variant="success" className="text-center">
-            <p style={{ fontSize: '35px', fontWeight: 'bold' }}>VirginAccounts</p>
-          </Alert>
+            <div>
+              <button>Buyer</button>
+              <button>Seller</button>
+            </div>
           <p style={{ fontSize: '20px', fontWeight: 'bold' }}>QUICK START</p>
           <p style={{ fontSize: '15px' }}>
             Welcome to VirginAccounts! VirginAccounts is thrilled to have you on board. Our mission is to provide top-quality products and discreet shipping making your experience seamless as possible.
